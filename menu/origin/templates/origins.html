@@ -1,0 +1,46 @@
+<!-- origins.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for origin in origins %}
+        <div class="col-md-4 mb-3">
+            <div class="card origin-card h-100">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <a href="{% url 'origin:filtered_courses' origin.pk %}" class="btn btn-primary btn-lg btn-block py-3 origin-button">
+                        <span class="text-uppercase font-weight-bold">{{ origin.name }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+.origin-button {
+    background-color: #6c757d; /* измените цвет фона по вашему вкусу */
+    color: #ffffff; /* цвет текста */
+    border-color: #6c757d; /* цвет границы */
+    transition: all 0.3s ease; /* плавное изменение состояния */
+}
+
+.origin-button:hover,
+.origin-button:focus {
+    background-color: #495057; /* изменение цвета фона при наведении */
+    border-color: #495057; /* изменение цвета границы при наведении */
+}
+
+.origin-card {
+    border: none; /* убираем границы карточки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* добавляем тень */
+}
+
+.origin-card .card-body {
+    padding: 2rem; /* отступ внутри карточки */
+    text-align: center; /* выравниваем текст по центру */
+    height: 100%; /* занимаем всю доступную высоту */
+}
+</style>
+{% endblock %}

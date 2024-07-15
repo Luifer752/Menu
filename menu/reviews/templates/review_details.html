@@ -1,0 +1,20 @@
+<!-- review_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="row">
+        {% for review in reviews %}
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.content }}</h5>
+                    <p class="card-text">{{ review.get_stars_display }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
