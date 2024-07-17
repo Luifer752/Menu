@@ -14,7 +14,7 @@ class CoursesListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['origins'] = Origin.objects.all()
-
+        context['request'] = self.request
         return context
 
 
@@ -27,6 +27,7 @@ class CourseDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         course = self.get_object()
         context['reviews'] = Review.objects.filter(course=course)
+
         return context
 
 

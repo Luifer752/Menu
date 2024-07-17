@@ -1,6 +1,5 @@
 from django.db import models
 from origin.models import Origin
-# Create your models here.
 
 
 class Course(models.Model):
@@ -10,3 +9,5 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+

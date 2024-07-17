@@ -16,12 +16,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('courses.urls', 'courses'), namespace='courses')),
-    path('reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
-    path('origin/', include(('origin.urls', 'origin'), namespace='origin')),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
+
+urlpatterns += i18n_patterns(
+    path('courses/', include(('courses.urls', 'courses'), namespace='courses')),
+    path('origin/', include(('origin.urls', 'origin'), namespace='origin')),
+    path('reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
+    prefix_default_language=False,
+)
