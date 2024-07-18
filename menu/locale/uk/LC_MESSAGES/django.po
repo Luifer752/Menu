@@ -34,7 +34,7 @@ msgstr "Опис"
 
 #: courses/templates/Courses_List.html:17
 msgid "View"
-msgstr ""
+msgstr "Детальніше"
 
 #: courses/templates/base.html:15
 msgid "Courses"

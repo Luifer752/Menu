@@ -1,6 +1,6 @@
 <!-- Courses_List.html -->
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 <div class="container">
     <div class="row">
@@ -9,11 +9,10 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">Description: {{ course.description|truncatechars:100 }}</p>
+                    <p class="card-text">{{ course.description|truncatechars:100 }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="{% url 'courses:course_detail' course.pk %}" class="btn btn-sm btn-outline-secondary">View</a>
-
+                            <a href="{% url 'courses:course_detail' course.pk %}" class="btn btn-sm btn-outline-secondary">{% trans "View" %}</a>
                         </div>
                     </div>
                 </div>
