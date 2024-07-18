@@ -29,5 +29,5 @@ urlpatterns += i18n_patterns(
     path('courses/', include(('courses.urls', 'courses'), namespace='courses')),
     path('origin/', include(('origin.urls', 'origin'), namespace='origin')),
     path('reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
-    prefix_default_language=False,
+    # prefix_default_language=False,
 )
