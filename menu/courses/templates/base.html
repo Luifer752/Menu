@@ -12,7 +12,15 @@
 <div class="container">
     <header class="d-flex justify-content-between py-3">
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{% url 'courses:courses_list' %}" class="nav-link active" aria-current="page">{% trans "Courses" %}</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{% trans "Courses" %}</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'courses:courses_list' %}">{% trans "All Courses" %}</a></li>
+                    {% for origin in origins %}
+                    <li><a class="dropdown-item" href="{% url 'origin:filtered_courses' pk=origin.id %}?origin={{ origin.id }}">{{ origin.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
             <li class="nav-item"><a href="{% url 'origin:origins' %}" class="nav-link">{% trans "By origin" %}</a></li>
             <li class="nav-item"><a href="{% url 'reviews:reviews_list' %}" class="nav-link">{% trans "Reviews" %}</a></li>
         </ul>
